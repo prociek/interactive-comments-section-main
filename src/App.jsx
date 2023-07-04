@@ -1,9 +1,11 @@
 import "./App.css";
+import CommentsList from "./components/commentsList";
 
 function App() {
   return (
     <>
-      <div className="attribution">
+      <CommentsList />
+      <footer className="attribution">
         Challenge by{" "}
         <a
           href="https://www.frontendmentor.io?ref=challenge"
@@ -13,7 +15,7 @@ function App() {
           Frontend Mentor
         </a>
         . Coded by <a href="#">Tomasz Procko</a>.
-      </div>
+      </footer>
     </>
   );
 }
