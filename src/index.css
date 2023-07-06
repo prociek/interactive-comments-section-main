@@ -1,69 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Signika+Negative:wght@500&display=swap");
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: rubik;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Color */
+  --light-blue: hsl(238, 40%, 52%);
+  --dark-blue: hsl(212, 24%, 26%);
+  --soft-red: hsl(358, 79%, 66%);
+  --pale-red: hsl(357, 100%, 86%);
+  --grayish-blue: hsl(211, 10%, 45%);
+  --light-grayish-blue: hsl(239, 57%, 85%);
+  --light-gray: hsl(223, 19%, 93%);
+  --very-light-gray: hsl(228, 33%, 97%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+  /* radius */
+  --rd-small: 0.5rem;
+  --rd-medium: 1rem;
+  --rd-large: 2rem;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  /* gap */
+  --gap-xsmall: 0.75rem;
+  --gap-small: 1rem;
+  --gap-medium: 2rem;
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+  /* padding */
+  --pd-small: 1rem;
+  --pd-medium: 2rem;
+  --pd-large: 3rem;
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+  /* margin */
+  --mg-small: 1rem;
+  --mg-medium: 2rem;
+  --mg-large: 3rem;
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  /* box-shadow */
+  --shadow-light: 0.1rem 0.2rem 0.5rem hsla(0, 0%, 0%, 0.1);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+html {
+  font-size: 16px;
+  color: var(--grayish-blue);
+  background-color: var(--very-light-gray);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }

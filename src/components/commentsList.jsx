@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import Comment from "./comment";
+
+import "./commentList.css";
 
 const CommentsList = () => {
   const [comments, setComments] = useState([]);
@@ -12,7 +15,7 @@ const CommentsList = () => {
     async function fetchComments() {
       try {
         const response = await fetch("../data.json");
-        console.log(response);
+
         if (!response.ok) throw new Error("Something went wrong!!!");
 
         const data = await response.json();
@@ -33,10 +36,10 @@ const CommentsList = () => {
   else if (comments.length < 1) content = "No comments to display!";
   else
     content = comments.map((comment) => (
-      <div key={comment.id}>{comment.content}</div>
+      <Comment key={comment.id} {...comment} />
     ));
 
-  return <div>{content}</div>;
+  return <section className="comments">{content}</section>;
 };
 
 export default CommentsList;

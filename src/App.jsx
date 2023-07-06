@@ -1,4 +1,5 @@
 import "./App.css";
+import "normalize.css";
 import CommentsList from "./components/commentsList";
 
 function App() {
