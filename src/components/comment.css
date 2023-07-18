@@ -5,6 +5,25 @@
   box-shadow: var(--shadow-light);
 }
 
+.comment.isReply {
+  margin-left: var(--mg-small);
+  position: relative;
+}
+
+.comment.isReply::before {
+  content: "";
+  position: absolute;
+  background-color: var(--light-gray);
+  width: 2px;
+  height: calc(100% + var(--mg-small));
+  left: calc(var(--mg-small) * -1);
+  top: 0;
+}
+
+.comment.isReply:last-child::before {
+  height: 100%;
+}
+
 .comment .header {
   display: flex;
   justify-content: flex-start;
@@ -41,12 +60,15 @@
   font-weight: 500;
   color: var(--light-blue);
   background-color: var(--very-light-gray);
-
   border-radius: var(--rd-small);
 }
 
-.comment .footer .score img {
+.comment .footer .score button {
+  background-color: transparent;
+  border: none;
   padding: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .comment .footer .reply {

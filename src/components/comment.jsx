@@ -8,8 +8,16 @@ import ReplyIcon from "../assets/icon-reply.svg";
 
 import "./comment.css";
 
-const Comment = ({ user, score, createdAt, content }) => {
+const Comment = ({
+  user,
+  score: initialScore,
+  createdAt,
+  content,
+  isReply,
+}) => {
   const [img, setImage] = useState("");
+  const [score, setScore] = useState(initialScore);
+
   useEffect(() => {
     async function loadImage() {
       const loadedImage = await import(user.image.png);
@@ -17,8 +25,14 @@ const Comment = ({ user, score, createdAt, content }) => {
     }
     loadImage();
   }, [user.image.png]);
+
+  function handleScore(indicator) {
+    if (indicator === "plus") setScore((score) => score + 1);
+    if (indicator === "minus") setScore((score) => score - 1);
+  }
+
   return (
-    <article className="comment">
+    <article className={`comment ${isReply ? "isReply" : ""}`}>
       <header className="header">
         <img src={img} alt={user.username} />
         <h2>{user.username}</h2>
@@ -27,9 +41,13 @@ const Comment = ({ user, score, createdAt, content }) => {
       <main className="content">{content}</main>
       <footer className="footer">
         <div className="score">
-          <img src={PlusIcon} alt="plus icon" />
+          <button onClick={() => handleScore("plus")}>
+            <img src={PlusIcon} alt="plus icon" />
+          </button>
           {score}
-          <img src={MinusIcon} alt="minus icon" />
+          <button onClick={() => handleScore("minus")}>
+            <img src={MinusIcon} alt="minus icon" />
+          </button>
         </div>
         <button className="reply">
           <img src={ReplyIcon} alt="reply icon" />

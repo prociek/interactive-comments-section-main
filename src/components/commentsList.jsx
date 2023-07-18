@@ -35,9 +35,18 @@ const CommentsList = () => {
   else if (error) content = "Something went wrong!!!";
   else if (comments.length < 1) content = "No comments to display!";
   else
-    content = comments.map((comment) => (
-      <Comment key={comment.id} {...comment} />
-    ));
+    content = comments.map((comment) => {
+      let commentBlock = [<Comment key={comment.id} {...comment} />];
+
+      if (comment.replies.lenght < 1) return;
+
+      // render replies
+      comment.replies.forEach((reply) =>
+        commentBlock.push(<Comment key={reply.id} isReply={true} {...reply} />)
+      );
+
+      return commentBlock;
+    });
 
   return <section className="comments">{content}</section>;
 };
